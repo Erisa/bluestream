@@ -2,23 +2,24 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "npm:@atproto/api@0.6.20": "npm:@atproto/api@0.6.20"
+      "npm:@atproto/api@0.10.1": "npm:@atproto/api@0.10.1"
     },
     "npm": {
-      "@atproto/api@0.6.20": {
-        "integrity": "sha512-+peoKgkaxbglXQg9qEZcZIvyWm39yj0+syV3TBDrz5cWK4OIsdOyYBg2iISy+jvB5RzEUMe2WvOojP6Nq34mOg==",
+      "@atproto/api@0.10.1": {
+        "integrity": "sha512-yYb20+54MV1qDWyleRXPHqP2sFZdZh7c+W5cCEtZBDoGFDZQo4qOamy8P1arZGVh/vTz4Ho2aM+kdnxkv3/Gsw==",
         "dependencies": {
-          "@atproto/common-web": "@atproto/common-web@0.2.1",
-          "@atproto/lexicon": "@atproto/lexicon@0.2.2",
-          "@atproto/syntax": "@atproto/syntax@0.1.2",
-          "@atproto/xrpc": "@atproto/xrpc@0.3.2",
+          "@atproto/common-web": "@atproto/common-web@0.2.3",
+          "@atproto/lexicon": "@atproto/lexicon@0.3.1",
+          "@atproto/syntax": "@atproto/syntax@0.1.5",
+          "@atproto/xrpc": "@atproto/xrpc@0.4.1",
           "multiformats": "multiformats@9.9.0",
-          "tlds": "tlds@1.242.0",
-          "typed-emitter": "typed-emitter@2.1.0"
+          "tlds": "tlds@1.250.0",
+          "typed-emitter": "typed-emitter@2.1.0",
+          "zod": "zod@3.22.4"
         }
       },
-      "@atproto/common-web@0.2.1": {
-        "integrity": "sha512-5AoDKkKz7JhXSiicjhPihA/MJMlSuTQ9Aed9fflPuoTuT6C3aXbxaUZEcqqipSwlCfGpOzPmJmWJjMWWsYr2ew==",
+      "@atproto/common-web@0.2.3": {
+        "integrity": "sha512-k9VKGYUqjsRlI3wS31XyCbeb2U7ddS4X/eFgzos2CE5rIbk/uQGyKH+0Jcn1JIwRkvI1BemyNuUVrS8Ok3wiuw==",
         "dependencies": {
           "graphemer": "graphemer@1.4.0",
           "multiformats": "multiformats@9.9.0",
@@ -26,26 +27,26 @@
           "zod": "zod@3.22.4"
         }
       },
-      "@atproto/lexicon@0.2.2": {
-        "integrity": "sha512-CvmjaSDavHMOJTuNYE8VjYhL7TVxBYV8QSWh2jHCpzfmj02DvVD9UBIfnoVv67POJkEtWXddjoV9beaIbaq/Xg==",
+      "@atproto/lexicon@0.3.1": {
+        "integrity": "sha512-yLy6GUNP4pn0mGUIyUHvN0UeBza0S03AgjTXVR6KliC4ut2+7SjNMe4cI4G1M8/bJMaccC6ooQSm2kvwiOdr3A==",
         "dependencies": {
-          "@atproto/common-web": "@atproto/common-web@0.2.1",
-          "@atproto/syntax": "@atproto/syntax@0.1.2",
+          "@atproto/common-web": "@atproto/common-web@0.2.3",
+          "@atproto/syntax": "@atproto/syntax@0.1.5",
           "iso-datestring-validator": "iso-datestring-validator@2.2.2",
           "multiformats": "multiformats@9.9.0",
           "zod": "zod@3.22.4"
         }
       },
-      "@atproto/syntax@0.1.2": {
-        "integrity": "sha512-n6VSuccMGouwftCvZBq9WNwI0qYCMOH/lTHSV+/dT232lX7pIrqisOlErUSBoOJ49B1Wxy1DjeeBS26ap9SsGQ==",
+      "@atproto/syntax@0.1.5": {
+        "integrity": "sha512-pbY5lOnThoAbsmrdbN9LC/dNmckfqODJiX9zjW2t3BIHYFeGBc6w9bK3Vre8A0Hg8yWkQpv6gaBLu+ykgi2DJQ==",
         "dependencies": {
-          "@atproto/common-web": "@atproto/common-web@0.2.1"
+          "@atproto/common-web": "@atproto/common-web@0.2.3"
         }
       },
-      "@atproto/xrpc@0.3.2": {
-        "integrity": "sha512-D9jGjcFnEMHuGQ56v6+78uX3RiytKLrA5ITLq6shy0Qj6Zvt5MqV+/cTFuNPKrNCrnWOtHFeRQwMqyGhNS9qZQ==",
+      "@atproto/xrpc@0.4.1": {
+        "integrity": "sha512-EMRGiu6oDvFL03Hk2rG/WCL3QK0GjZs9psH80JVf8z2nfdsGON6yn0hw3jvRB26CBXqi58U8Uicyq8Ej5pVTAA==",
         "dependencies": {
-          "@atproto/lexicon": "@atproto/lexicon@0.2.2",
+          "@atproto/lexicon": "@atproto/lexicon@0.3.1",
           "zod": "zod@3.22.4"
         }
       },
@@ -67,8 +68,8 @@
           "tslib": "tslib@2.6.2"
         }
       },
-      "tlds@1.242.0": {
-        "integrity": "sha512-aP3dXawgmbfU94mA32CJGHmJUE1E58HCB1KmlKRhBNtqBL27mSQcAEmcaMaQ1Za9kIVvOdbxJD3U5ycDy7nJ3w==",
+      "tlds@1.250.0": {
+        "integrity": "sha512-rWsBfFCWKrjM/o2Q1TTUeYQv6tHSd/umUutDjVs6taTuEgRDIreVYIBgWRWW4ot7jp6n0UVUuxhTLWBtUmPu/w==",
         "dependencies": {}
       },
       "tslib@2.6.2": {
@@ -161,5 +162,10 @@
     "https://deno.land/std@0.204.0/dotenv/mod.ts": "1da8c6d0e7f7d8a5c2b19400b763bc11739df24acec235dda7ea2cfd3d300057",
     "https://deno.land/std@0.204.0/fmt/colors.ts": "c51c4642678eb690dcf5ffee5918b675bf01a33fba82acf303701ae1a4f8c8d9",
     "https://deno.land/x/markup_tag@0.4.0/mod.ts": "27ac5deb9f5dff3b99cb202b21c74315fa17c762e7009c6e223bbdc7c2f7061d"
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:@atproto/api@0.10.1"
+    ]
   }
 }

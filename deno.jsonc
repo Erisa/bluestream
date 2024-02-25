@@ -2,11 +2,11 @@
   "imports": {
     "std/": "https://deno.land/std@0.204.0/",
     "markup_tag": "https://deno.land/x/markup_tag@0.4.0/mod.ts",
-    "@atproto/api": "npm:@atproto/api@0.6.20"
+    "@atproto/api": "npm:@atproto/api@0.10.1"
   },
   "tasks": {
     // runner
-    "dev": "deno run --allow-env=DENO_DEPLOYMENT_ID,BLUESKY_IDENTIFIER,BLUESKY_PASSWORD --allow-read=index.html,.env --allow-net=0.0.0.0,bsky.social --watch server.ts",
+    "dev": "deno run --allow-env=DENO_DEPLOYMENT_ID,BLUESKY_IDENTIFIER,BLUESKY_PASSWORD --allow-read=index.html,.env --allow-net --watch server.ts",
     // development
     "test": "deno test --allow-env=DENO_DEPLOYMENT_ID,BLUESKY_IDENTIFIER,BLUESKY_PASSWORD --allow-read=.env --allow-net=bsky.social --allow-none",
     "cov": "deno task test --coverage=cov_profile; deno coverage cov_profile",

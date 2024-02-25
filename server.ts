@@ -387,25 +387,51 @@ Deno.serve(async (request: Request) => {
     });
   }
 
-  const { did, handle } = await getActor(pathname.replace(/^\//, ""));
-  if (did === "") {
-    return new Response("Unable to resolve handle", {
-      headers: { "content-type": "text/plain" },
-    });
+  const feedid = pathname.replace(/^\//, "");
+  let name = feedid;
+  let did = "";
+
+  if (!name.startsWith("at://")) {
+    const actor = await getActor(name);
+    did = actor.did;
+    if (actor.displayName !== undefined) {
+      name = actor.displayName;
+    } else {
+      name = actor.handle;
+    }
+  } else {
+    // return new Response("Unable to resolve handle", {
+    //   headers: { "content-type": "text/plain" },
+    // });
+    const feedGeneratorResponse = await agent.api.app.bsky.feed
+      .getFeedGenerator({
+        feed: name,
+      });
+
+    name = feedGeneratorResponse.data.view.displayName;
   }
 
-  if (!pathname.startsWith("/did:plc:")) {
+  if (!pathname.startsWith("/did:plc:") && !pathname.startsWith("/at://")) {
     return Response.redirect(origin + "/" + did + search);
   }
 
-  const response = await agent.api.app.bsky.feed.getAuthorFeed({
-    actor: did,
-  });
+  let response;
+  if (feedid.startsWith("at://")) {
+    response = await agent.api.app.bsky.feed.getFeed({
+      feed: feedid,
+    });
+  } else {
+    response = await agent.api.app.bsky.feed.getAuthorFeed({
+      actor: did,
+    });
+  }
+
   if (!response?.data?.feed) {
     return new Response("Unable to get posts", {
       headers: { "content-type": "text/plain" },
     });
   }
+
   const authorFeed: AtoprotoAPI.AppBskyFeedDefs.FeedViewPost[] =
     response.data.feed;
 
@@ -452,12 +478,12 @@ Deno.serve(async (request: Request) => {
     },
     tag(
       "channel",
-      tag("title", `Bluestream (${handle})`),
+      tag("title", `Bluestream (${name})`),
       `<atom:link href="${
         sanitize(origin + "/" + did + search)
       }" rel="self" type="application/rss+xml" />`,
       tag("link", `https://bsky.app/profile/${did}`),
-      tag("description", `${handle}'s posts in ${BLUESKY_SERVICE}`),
+      tag("description", `Posts from ${name} in ${BLUESKY_SERVICE}`),
       AppBskyFeedDefs.isPostView(firstPost) &&
         AppBskyFeedPost.isRecord(firstPost.record)
         ? tag("lastBuildDate", toUTCString(firstPost.record.createdAt))
@@ -465,7 +491,7 @@ Deno.serve(async (request: Request) => {
       ...feeds.map(({ post, reason, reply }) =>
         tag(
           "item",
-          tag("title", genTitle({ did, handle }, { post, reason, reply })),
+          tag("title", genTitle(post.author, { post, reason, reply })),
           tag(
             "description",
             ...genMainContent(
